@@ -1,0 +1,11 @@
+include(":app")
+include(":features:preference")
+include(":domain")
+include(":data:repository")
+include(":data:local")
+include(":libraries:core")
+include(":libraries:test")
+include(":libraries:designsystem")
+include(":libraries:navigation")
+
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
