@@ -21,7 +21,7 @@ private val LightColorPalette = lightColors(
 )
 
 /**
- * Alkaa main theme.
+ * Main theme.
  *
  * @param darkTheme indicates if the application is in dark theme mode.
  * @param content composable function

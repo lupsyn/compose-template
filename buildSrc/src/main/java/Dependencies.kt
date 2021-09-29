@@ -15,6 +15,7 @@ object Versions {
     const val ktx = "1.0.2"
     const val room = "2.3.0"
     const val playCore = "1.10.0"
+    const val splashScreen = "1.0.0-alpha01"
 
     const val coroutines = "1.4.0"
 
@@ -55,7 +56,7 @@ object Deps {
 
 object AndroidDeps {
     const val material = "com.google.android.material:material:${Versions.material}"
-    const val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraint}"
+    const val splashScreen = "androidx.core:core-splashscreen:${Versions.splashScreen}"
     const val ktx = "androidx.core:core-ktx:${Versions.ktx}"
     const val playCore = "com.google.android.play:core:${Versions.playCore}"
     val room = RoomDeps

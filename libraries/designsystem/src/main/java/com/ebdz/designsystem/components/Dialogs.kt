@@ -16,7 +16,7 @@ import com.ebdz.designsystem.Theme
  * @param onCloseDialog function to be called dismissing the dialog
  */
 @Composable
-fun AlkaaDialog(
+fun Dialog(
     arguments: DialogArguments,
     isDialogOpen: Boolean,
     onCloseDialog: () -> Unit
@@ -46,7 +46,7 @@ fun AlkaaDialog(
 }
 
 /**
- * Arguments to be used with [AlkaaDialog].
+ * Arguments to be used with [Dialog].
  *
  * @param title the dialog title
  * @param text the dialog content text
@@ -75,6 +75,6 @@ fun DialogPreview() {
             onConfirmAction = {}
         )
 
-        AlkaaDialog(arguments = arguments, isDialogOpen = true, onCloseDialog = {})
+        Dialog(arguments = arguments, isDialogOpen = true, onCloseDialog = {})
     }
 }

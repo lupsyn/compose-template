@@ -7,7 +7,7 @@ import com.ebdz.compose.navigation.NavGraph
 import com.ebdz.designsystem.Theme
 
 /**
- * Main Alkaa Activity.
+ * Main Activity.
  */
 internal class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
