@@ -26,7 +26,7 @@ import com.ebdz.preference.R
 import java.util.Locale
 
 /**
- * Alkaa Preference Section.
+ * Preference Section.
  *
  * @param modifier the decorator
  * @param onAboutClick function to be called when the about item is clicked

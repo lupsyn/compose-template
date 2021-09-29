@@ -112,7 +112,7 @@ fun AddFloatingButton(@StringRes contentDescription: Int, onClick: () -> Unit) {
 }
 
 /**
- * TextField input for Alkaa forms.
+ * TextField input for forms.
  *
  * @param label text field label
  * @param text text to be shown
