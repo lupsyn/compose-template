@@ -17,7 +17,7 @@ import androidx.compose.ui.unit.dp
 import com.ebdz.compose.model.HomeSection
 import com.ebdz.designsystem.Theme
 import com.ebdz.preference.presentation.PreferenceSection
-import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.InternalCoroutinesApi
 import kotlinx.coroutines.launch
 
 /**
@@ -47,7 +47,7 @@ fun Home(
 }
 
 
-@OptIn(ExperimentalMaterialApi::class)
+@OptIn(ExperimentalMaterialApi::class, InternalCoroutinesApi::class)
 @Composable
 private fun HomeScaffold(
     homeSection: HomeSection,

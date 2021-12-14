@@ -9,7 +9,7 @@ object Versions {
     const val targetSdk = 30
     const val minSdk = 24
 
-    const val kotlin = "1.6.10"
+    const val kotlin = "1.5.30"
     const val material = "1.3.0"
     const val constraint = "2.0.4"
     const val ktx = "1.0.2"
