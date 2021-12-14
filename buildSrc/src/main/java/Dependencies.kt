@@ -9,7 +9,7 @@ object Versions {
     const val targetSdk = 30
     const val minSdk = 24
 
-    const val kotlin = "1.5.30"
+    const val kotlin = "1.6.10"
     const val material = "1.3.0"
     const val constraint = "2.0.4"
     const val ktx = "1.0.2"
@@ -17,16 +17,17 @@ object Versions {
     const val playCore = "1.10.0"
     const val splashScreen = "1.0.0-alpha01"
 
-    const val coroutines = "1.4.0"
+    const val coroutines = "1.6.0-RC2"
 
     const val logging = "2.0.6"
 
-    const val koin = "3.1.0"
+    const val koin = "3.1.4"
 
-    const val testJunit = "4.12"
+    const val testJunit = "4.13.2"
     const val testRunner = "1.1.1"
     const val testCore = "1.1.0"
-    const val testMockk = "1.12.0"
+    const val testMockk = "1.12.1"
+    const val testMockito = "3.9.0"
     const val testUiAutomator = "2.2.0"
     const val testJunitExt = "1.1.0"
     const val testRoom = "2.1.0"
@@ -37,9 +38,8 @@ object Versions {
     const val composeVm = "2.4.0-beta01"
     const val composeActivity = "1.4.0-alpha02"
 
-    const val buildGradle = "7.1.0-alpha12"
-
     const val ktlint = "0.42.1"
+    const val detekt = "1.17.1"
 }
 
 object Deps {
@@ -51,7 +51,6 @@ object Deps {
     val compose = ComposeDeps
     val test = TestDeps
     val quality = QualityDeps
-    val gradle = GradleDeps
 }
 
 object AndroidDeps {
@@ -65,6 +64,7 @@ object AndroidDeps {
 object CoroutinesDeps {
     const val core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}"
     const val test = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutines}"
+    const val testDebug = "org.jetbrains.kotlinx:kotlinx-coroutines-debug:${Versions.coroutines}"
 }
 
 object RoomDeps {
@@ -101,15 +101,13 @@ object TestDeps {
     const val uiAutomator = "androidx.test.uiautomator:uiautomator:${Versions.testUiAutomator}"
     const val junitExt = "androidx.test.ext:junit:${Versions.testJunitExt}"
     const val mockk = "io.mockk:mockk:${Versions.testMockk}"
+    const val mockito = "org.mockito:mockito-core:${Versions.testMockito}"
+    const val mockitoInline = "org.mockito:mockito-inline:${Versions.testMockito}"
+    const val mockitoInstrumentationTests = "org.mockito:mockito-android:${Versions.testMockito}"
     const val room = "androidx.room:room-testing:${Versions.testRoom}"
     const val barista = "com.adevinta.android:barista:${Versions.barista}"
 }
 
 object QualityDeps {
     const val ktlint = "com.pinterest:ktlint:${Versions.ktlint}"
-}
-
-object GradleDeps {
-    const val buildGradle = "com.android.tools.build:gradle:${Versions.buildGradle}"
-    const val kotlinGradle = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
 }
