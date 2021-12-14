@@ -75,6 +75,7 @@ dependencies {
     implementation(Deps.compose.activity)
     implementation(Deps.android.playCore)
     implementation(Deps.koin.android)
+    implementation(Deps.android.splashScreen)
 
     implementation(projects.features.preference)
 
