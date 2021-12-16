@@ -1,32 +1,36 @@
 package com.ebdz.compose.presentation.home
 
-import androidx.activity.compose.BackHandler
 import androidx.compose.animation.Crossfade
 import androidx.compose.animation.animateColorAsState
-import androidx.compose.foundation.layout.*
-import androidx.compose.material.*
-import androidx.compose.runtime.*
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material.BottomAppBar
+import androidx.compose.material.ExperimentalMaterialApi
+import androidx.compose.material.Icon
+import androidx.compose.material.IconButton
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Scaffold
+import androidx.compose.material.Text
+import androidx.compose.material.TopAppBar
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.ebdz.compose.model.HomeSection
 import com.ebdz.designsystem.Theme
 import com.ebdz.preference.presentation.PreferenceSection
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.launch
 
 /**
  * App Home screen.
  */
 @Composable
-fun Home(
-    onAboutClick: () -> Unit
-) {
+fun HomeScreen(onAboutClick: () -> Unit) {
     val (currentSection, setCurrentSection) = rememberSaveable { mutableStateOf(HomeSection.Home) }
     val navItems = HomeSection.values().toList()
     val homeModifier = Modifier.padding(bottom = 56.dp)
@@ -55,94 +59,34 @@ private fun HomeScaffold(
     navItems: List<HomeSection>,
     actions: HomeActions
 ) {
-    val coroutineScope = rememberCoroutineScope()
-    val modalSheetState = rememberModalBottomSheetState(initialValue = ModalBottomSheetValue.Hidden)
-    var sheetContentState by rememberSaveable {
-        mutableStateOf<SheetContentState>(SheetContentState.Empty)
-    }
-
-    val focusManager = LocalFocusManager.current
-
-    LaunchedEffect(modalSheetState, focusManager) {
-        snapshotFlow { modalSheetState.isVisible }
-            .collect { isVisible ->
-                if (isVisible.not()) {
-                    focusManager.clearFocus()
-                    sheetContentState = SheetContentState.Empty
-                }
-            }
-    }
-
-    val onShowBottomSheet: (SheetContentState) -> Unit = { contentState ->
-        sheetContentState = contentState
-        coroutineScope.launch { modalSheetState.show() }
-    }
-
-    val onHideBottomSheet: () -> Unit = { coroutineScope.launch { modalSheetState.hide() } }
-
-    if (modalSheetState.isVisible) {
-        BackHandler { coroutineScope.launch { modalSheetState.hide() } }
-    }
-
-    BottomSheetLayout(
-        modalSheetState = modalSheetState,
-        sheetContentState = sheetContentState,
-        onHideBottomSheet = onHideBottomSheet
-    ) {
-        Scaffold(
-            topBar = {
-                TopBar(currentSection = homeSection)
-            },
-            content = {
-                Content(homeSection, modifier, actions, onShowBottomSheet)
-            },
-            bottomBar = {
-                BottomNav(
-                    currentSection = homeSection,
-                    onSectionSelect = actions.setCurrentSection,
-                    items = navItems
-                )
-            }
-        )
-    }
-}
-
-@OptIn(ExperimentalMaterialApi::class)
-@Composable
-private fun BottomSheetLayout(
-    modalSheetState: ModalBottomSheetState,
-    sheetContentState: SheetContentState,
-    onHideBottomSheet: () -> Unit,
-    content: @Composable () -> Unit
-) {
-    ModalBottomSheetLayout(
-        sheetState = modalSheetState,
-        sheetBackgroundColor = Color.Transparent,
-        sheetContent = {
-            Card(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(256.dp)
-                    .padding(horizontal = 2.dp)
-            ) {
-                when (sheetContentState) {
-                    SheetContentState.Empty ->
-                        Box(modifier = Modifier.fillMaxSize())
-                }
-            }
+    Scaffold(
+        topBar = {
+            TopBar(currentSection = homeSection)
+        },
+        content = {
+            Content(
+                homeSection = homeSection,
+                modifier = modifier,
+                actions = actions
+            )
+        },
+        bottomBar = {
+            BottomNav(
+                currentSection = homeSection,
+                onSectionSelect = actions.setCurrentSection,
+                items = navItems
+            )
         }
-    ) {
-        content()
-    }
+    )
 }
+
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 private fun Content(
     homeSection: HomeSection,
     modifier: Modifier,
-    actions: HomeActions,
-    onShowBottomSheet: (SheetContentState) -> Unit
+    actions: HomeActions
 ) {
     when (homeSection) {
         HomeSection.Settings -> {
@@ -151,6 +95,7 @@ private fun Content(
                 onAboutClick = actions.onAboutClick
             )
         }
+        else -> {}
     }
 }
 

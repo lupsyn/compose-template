@@ -77,7 +77,6 @@ private fun ContentHeader() {
             repeatMode = RepeatMode.Reverse
         )
     )
-
     Box(
         contentAlignment = Alignment.Center,
         modifier = Modifier
@@ -86,7 +85,6 @@ private fun ContentHeader() {
             .background(color = color)
     ) {
         val appName = stringResource(id = R.string.app_name).lowercase(Locale.getDefault())
-
         Text(
             text = appName,
             style = MaterialTheme.typography.h1.copy(color = MaterialTheme.colors.surface)
@@ -103,9 +101,7 @@ private fun ContentCallToAction() {
             .padding(vertical = 16.dp)
     ) {
         val context = LocalContext.current
-        Button(onClick = {
-            context.openUrl(PROJECT_URL)
-        }) {
+        Button(onClick = { context.openUrl(PROJECT_URL) }) {
             Icon(
                 imageVector = Icons.Default.Person,
                 contentDescription = stringResource(id = R.string.about_cd_github)

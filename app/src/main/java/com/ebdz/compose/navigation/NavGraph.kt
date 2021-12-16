@@ -6,7 +6,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.ebdz.compose.presentation.home.Home
+import com.ebdz.compose.presentation.home.HomeScreen
 import com.ebdz.navigation.Destinations
 import com.ebdz.preference.presentation.About
 
@@ -25,7 +25,7 @@ fun NavGraph(startDestination: String = Destinations.Home) {
         startDestination = startDestination
     ) {
         composable(Destinations.Home) {
-            Home(onAboutClick = actions.openAbout)
+            HomeScreen(onAboutClick = actions.openAbout)
         }
         composable(Destinations.About) {
             About(onUpPress = actions.onUpPress)

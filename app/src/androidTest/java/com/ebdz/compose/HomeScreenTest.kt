@@ -38,4 +38,9 @@ internal class HomeScreenTest {
             composeTestRule.onNodeWithText(title).assertExists()
         }
     }
+
+    @Test
+    fun test_Assert() {
+        assert(false) // A dummy test to check what happens when a test fail. ;)
+    }
 }

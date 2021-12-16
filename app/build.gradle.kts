@@ -75,10 +75,11 @@ dependencies {
     implementation(Deps.compose.activity)
     implementation(Deps.android.playCore)
     implementation(Deps.koin.android)
+    implementation(Deps.android.splashScreen)
 
     implementation(projects.features.preference)
 
     addComposeDependencies()
-    debugImplementation("androidx.compose.ui:ui-test-manifest:1.1.0-alpha04")
+    debugImplementation(Deps.compose.manifest)
 }
 

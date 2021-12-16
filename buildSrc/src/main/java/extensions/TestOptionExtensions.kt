@@ -11,6 +11,7 @@ fun CommonExtension<*, *, *, *>.addSingleDeviceTestOptions() {
     testOptions {
         emulatorSnapshots {
             enableForTestFailures = true
+            maxSnapshotsForTestFailures = 2
         }
 
         ManagedVirtualDevice("pixel2").apply {

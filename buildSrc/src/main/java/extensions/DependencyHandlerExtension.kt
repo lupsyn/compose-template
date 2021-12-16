@@ -31,8 +31,6 @@ fun DependencyHandler.addComposeDependencies() {
         exclude(group = "androidx.activity", module = "activity")
         exclude(group = "androidx.lifecycle", module = "lifecycle-runtime")
     }
-
-  //  androidTestImplementation(Deps.compose.manifest)
 }
 
 private fun DependencyHandler.implementation(dependencyNotation: String): Dependency? =
