@@ -6,7 +6,7 @@ import io.gitlab.arturbosch.detekt.extensions.DetektExtension
 apply<DetektPlugin>()
 
 configure<DetektExtension> {
-    config = files("$rootDir/config/filters/detekt.yml")
+    config = files("$rootDir/config/detekt/detekt.yml")
 
     reports {
         xml {
