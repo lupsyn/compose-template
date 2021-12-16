@@ -107,8 +107,7 @@ fun LoadingContent() {
 @Composable
 fun Toolbar(onUpPress: () -> Unit) {
     TopAppBar(backgroundColor = Color.Transparent, elevation = 0.dp) {
-        IconButton(onClick = onUpPress, modifier = Modifier.align(Alignment.CenterVertically))
-        {
+        IconButton(onClick = onUpPress, modifier = Modifier.align(Alignment.CenterVertically)) {
             Icon(
                 imageVector = Icons.Rounded.ArrowBack,
                 contentDescription = stringResource(id = R.string.back_arrow_content_description)
