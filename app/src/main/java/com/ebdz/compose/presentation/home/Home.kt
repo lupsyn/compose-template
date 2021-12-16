@@ -95,6 +95,7 @@ private fun Content(
                 onAboutClick = actions.onAboutClick
             )
         }
+        else -> {}
     }
 }
 
