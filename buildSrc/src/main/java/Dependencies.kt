@@ -29,7 +29,7 @@ object Versions {
     const val testMockk = "1.12.1"
     const val testMockito = "3.9.0"
     const val testUiAutomator = "2.2.0"
-    const val testJunitExt = "1.1.0"
+    const val testJunitExt = "1.1.5"
     const val testRoom = "2.1.0"
     const val barista = "4.0.0"
 
