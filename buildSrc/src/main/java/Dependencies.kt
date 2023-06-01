@@ -15,7 +15,7 @@ object Versions {
     const val ktx = "1.0.2"
     const val room = "2.3.0"
     const val playCore = "1.10.0"
-    const val splashScreen = "1.0.0-alpha02"
+    const val splashScreen = "1.0.1"
 
     const val coroutines = "1.6.0-RC2"
 
