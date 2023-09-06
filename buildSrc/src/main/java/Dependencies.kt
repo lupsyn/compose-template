@@ -35,7 +35,7 @@ object Versions {
 
     const val compose = "1.1.0-alpha04"
     const val composeNav = "2.4.0-alpha09"
-    const val composeVm = "2.4.0-beta01"
+    const val composeVm = "2.6.2"
     const val composeActivity = "1.4.0-alpha02"
 
     const val ktlint = "0.42.1"
