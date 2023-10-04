@@ -33,7 +33,7 @@ object Versions {
     const val testRoom = "2.1.0"
     const val barista = "4.0.0"
 
-    const val compose = "1.1.0-alpha04"
+    const val compose = "1.5.3"
     const val composeNav = "2.4.0-alpha09"
     const val composeVm = "2.4.0-beta01"
     const val composeActivity = "1.4.0-alpha02"
