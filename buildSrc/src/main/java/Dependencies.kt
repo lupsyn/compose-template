@@ -31,7 +31,7 @@ object Versions {
     const val testUiAutomator = "2.2.0"
     const val testJunitExt = "1.1.5"
     const val testRoom = "2.1.0"
-    const val barista = "4.0.0"
+    const val barista = "4.3.0"
 
     const val compose = "1.5.3"
     const val composeNav = "2.7.3"
