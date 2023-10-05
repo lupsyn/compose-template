@@ -11,6 +11,7 @@ plugins {
 android {
     compileSdk = Versions.compileSdk
     namespace = "com.ebdz.compose"
+
     defaultConfig {
         minSdk = Versions.minSdk
         targetSdk = Versions.targetSdk
@@ -27,12 +28,8 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
-
-    kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_11.toString()
+        sourceCompatibility(JavaVersion.VERSION_17)
+        targetCompatibility(JavaVersion.VERSION_17)
     }
 
     buildTypes {
@@ -57,7 +54,7 @@ android {
 
     addComposeConfig()
 
-    kotlinOptions { jvmTarget = "11" }
+    kotlinOptions { jvmTarget = JavaVersion.VERSION_17.toString() }
 
     addSingleDeviceTestOptions()
 }

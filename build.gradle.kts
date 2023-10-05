@@ -5,7 +5,6 @@ allprojects {
         google()
         mavenCentral()
     }
-
 }
 
 tasks.register("clean") {
@@ -16,6 +15,6 @@ tasks.withType(KotlinCompile::class.java).configureEach {
     kotlinOptions {
         allWarningsAsErrors = false
         freeCompilerArgs = listOf("-Xopt-in=kotlin.RequiresOptIn", "-Xopt-in=kotlin.Experimental")
-        jvmTarget = "1.8"
+        jvmTarget = JavaVersion.VERSION_17.toString()
     }
 }

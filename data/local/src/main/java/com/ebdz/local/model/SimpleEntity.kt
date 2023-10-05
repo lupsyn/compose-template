@@ -6,5 +6,6 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class SimpleEntity(
-    @ColumnInfo(name = "kd") @PrimaryKey(autoGenerate = true) var id: Long = 0
+    @ColumnInfo(name = "kd")
+    @PrimaryKey(autoGenerate = true) var id: Long = 0
 )

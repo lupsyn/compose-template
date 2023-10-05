@@ -75,7 +75,7 @@ private fun ContentHeader() {
         animationSpec = infiniteRepeatable(
             animation = tween(durationMillis = 10_000, easing = LinearEasing),
             repeatMode = RepeatMode.Reverse
-        )
+        ), label = ""
     )
     Box(
         contentAlignment = Alignment.Center,
@@ -84,7 +84,8 @@ private fun ContentHeader() {
             .height(200.dp)
             .background(color = color)
     ) {
-        val appName = stringResource(id = R.string.app_name).lowercase(Locale.getDefault())
+        val appName =
+            stringResource(id = com.ebdz.core.R.string.app_name).lowercase(Locale.getDefault())
         Text(
             text = appName,
             style = MaterialTheme.typography.h1.copy(color = MaterialTheme.colors.surface)
