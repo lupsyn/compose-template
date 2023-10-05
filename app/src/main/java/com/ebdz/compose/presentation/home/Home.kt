@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.BottomAppBar
-import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.material.MaterialTheme
@@ -23,8 +22,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.ebdz.compose.model.HomeSection
-import com.ebdz.designsystem.Theme
-import com.ebdz.preference.presentation.PreferenceSection
+import com.ebdz.libraries.designsystem.Theme
 
 /**
  * App Home screen.
@@ -32,7 +30,7 @@ import com.ebdz.preference.presentation.PreferenceSection
 @Composable
 fun HomeScreen(onAboutClick: () -> Unit) {
     val (currentSection, setCurrentSection) = rememberSaveable { mutableStateOf(HomeSection.Home) }
-    val navItems = HomeSection.values().toList()
+    val navItems = HomeSection.entries
     val homeModifier = Modifier.padding(bottom = 56.dp)
 
     val actions = HomeActions(
@@ -51,7 +49,6 @@ fun HomeScreen(onAboutClick: () -> Unit) {
 }
 
 
-@OptIn(ExperimentalMaterialApi::class)
 @Composable
 private fun HomeScaffold(
     homeSection: HomeSection,
@@ -66,7 +63,7 @@ private fun HomeScaffold(
         content = {
             Content(
                 homeSection = homeSection,
-                modifier = modifier,
+                modifier = modifier.padding(it),
                 actions = actions
             )
         },
@@ -81,7 +78,6 @@ private fun HomeScaffold(
 }
 
 
-@OptIn(ExperimentalMaterialApi::class)
 @Composable
 private fun Content(
     homeSection: HomeSection,
@@ -90,11 +86,12 @@ private fun Content(
 ) {
     when (homeSection) {
         HomeSection.Settings -> {
-            PreferenceSection(
-                modifier = modifier,
-                onAboutClick = actions.onAboutClick
-            )
+//            PreferenceSection(
+//                modifier = modifier,
+//                onAboutClick = actions.onAboutClick
+//            )
         }
+
         else -> {}
     }
 }
@@ -112,7 +109,6 @@ private fun TopBar(currentSection: HomeSection) {
     }
 }
 
-@OptIn(ExperimentalMaterialApi::class)
 @Composable
 private fun BottomNav(
     currentSection: HomeSection,

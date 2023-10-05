@@ -1,6 +1,12 @@
 plugins {
-    id(GradlePlugin.ANDROID_LIBRARY)
-    id(GradlePlugin.COMPOSE)
+    id("com.ebdz.compose.gradleplugin.androidlibrary")
+    id("com.ebdz.compose.gradleplugin.androidkotlin")
+    id("com.ebdz.compose.gradleplugin.di")
+    id("com.ebdz.compose.gradleplugin.librarycompose")
+}
+
+android {
+    namespace = "com.ebdz.libraries.designsystem"
 }
 
 android {
@@ -8,6 +14,5 @@ android {
 }
 
 dependencies {
-    implementation(Deps.koin.android)
-    implementation(Deps.compose.viewModel)
+    testImplementation(project(":libraries:test"))
 }

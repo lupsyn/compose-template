@@ -1,11 +1,10 @@
 package quality
 
-import Deps
-
 val ktlint: Configuration by configurations.creating
+val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
 
 dependencies {
-    ktlint(Deps.quality.ktlint)
+    ktlint(libs.findLibrary("ktlint").get())
 }
 
 tasks {
@@ -14,8 +13,9 @@ tasks {
         classpath = ktlint
         mainClass.set("com.pinterest.ktlint.Main")
         args(
-            "src/**/*.kt", "--reporter=plain", "--reporter=checkstyle," +
-                    "output=${buildDir}/reports/ktlint.xml"
+            "src/**/*.kt",
+            "--reporter=plain",
+            "--reporter=checkstyle, output=${layout.buildDirectory}/reports/ktlint.xml"
         )
     }
 

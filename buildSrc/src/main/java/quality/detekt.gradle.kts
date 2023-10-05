@@ -6,16 +6,16 @@ import io.gitlab.arturbosch.detekt.extensions.DetektExtension
 apply<DetektPlugin>()
 
 configure<DetektExtension> {
-    config = files("$rootDir/config/detekt/detekt.yml")
+    config.from(files("$rootDir/config/detekt/detekt.yml"))
 
     reports {
         xml {
-            enabled = true
-            destination = project.file("build/reports/detekt/report.xml")
+            required.set(true)
+            outputLocation.set(project.file("build/reports/detekt/report.xml"))
         }
         html {
-            enabled = true
-            destination = project.file("build/reports/detekt/report.html")
+            required.set(true)
+            outputLocation.set(project.file("build/reports/detekt/report.html"))
         }
     }
 }
