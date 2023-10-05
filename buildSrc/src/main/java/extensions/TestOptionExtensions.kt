@@ -7,7 +7,7 @@ import com.android.build.gradle.internal.dsl.ManagedVirtualDevice
  * Configuring UTP for app
  */
 @Suppress("UnstableApiUsage")
-fun CommonExtension<*, *, *, *>.addSingleDeviceTestOptions() {
+fun CommonExtension<*, *, *, *, *>.addSingleDeviceTestOptions() {
     testOptions {
         emulatorSnapshots {
             enableForTestFailures = true
@@ -18,7 +18,7 @@ fun CommonExtension<*, *, *, *>.addSingleDeviceTestOptions() {
             device = "Pixel 2"
             apiLevel = 29
             systemImageSource = "google"
-            abi = "x86"
+//            abi = "x86"
 
         }.also { devices.add(it) }
     }

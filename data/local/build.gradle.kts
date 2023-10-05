@@ -4,6 +4,7 @@ plugins {
 }
 
 android {
+    namespace = "com.ebdz.local"
     defaultConfig {
         javaCompileOptions {
             annotationProcessorOptions {

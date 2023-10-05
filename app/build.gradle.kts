@@ -10,7 +10,7 @@ plugins {
 
 android {
     compileSdk = Versions.compileSdk
-
+    namespace = "com.ebdz.compose"
     defaultConfig {
         minSdk = Versions.minSdk
         targetSdk = Versions.targetSdk

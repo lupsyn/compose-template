@@ -10,9 +10,9 @@ plugins {
 }
 
 object PluginsVersions {
-    const val gradle = "7.1.0-beta05"
-    const val kotlin = "1.5.30"
-    const val detekt = "1.17.1"
+    const val gradle = "8.1.1"
+    const val kotlin = "1.9.10"
+    const val detekt = "1.23.1"
 }
 
 dependencies {

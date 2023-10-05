@@ -2,6 +2,10 @@ plugins {
     id(GradlePlugin.ANDROID_LIBRARY)
 }
 
+android {
+    namespace = "com.ebdz.core"
+}
+
 dependencies {
     implementation(Deps.android.ktx)
     implementation(Deps.android.material)

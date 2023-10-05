@@ -9,7 +9,7 @@ object Versions {
     const val targetSdk = 30
     const val minSdk = 24
 
-    const val kotlin = "1.5.30"
+    const val kotlin = "1.9.10"
     const val material = "1.3.0"
     const val constraint = "2.0.4"
     const val ktx = "1.0.2"
@@ -17,7 +17,7 @@ object Versions {
     const val playCore = "1.10.0"
     const val splashScreen = "1.0.1"
 
-    const val coroutines = "1.6.0-RC2"
+    const val coroutines = "1.6.4"
 
     const val logging = "2.0.6"
 
@@ -33,10 +33,10 @@ object Versions {
     const val testRoom = "2.1.0"
     const val barista = "4.0.0"
 
-    const val compose = "1.1.0-alpha04"
-    const val composeNav = "2.4.0-alpha09"
-    const val composeVm = "2.4.0-beta01"
-    const val composeActivity = "1.4.0-alpha02"
+    const val compose = "1.5.3"
+    const val composeNav = "2.7.3"
+    const val composeVm = "2.6.2"
+    const val composeActivity = "1.7.2"
 
     const val ktlint = "0.42.1"
     const val detekt = "1.17.1"

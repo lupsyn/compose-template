@@ -8,7 +8,7 @@ import com.android.build.api.dsl.CommonExtension
 /**
  * Adds the base Compose configurations on Gradle.
  */
-fun CommonExtension<*, *, *, *>.addComposeConfig() {
+fun CommonExtension<*, *, *, *, *>.addComposeConfig() {
     buildFeatures {
         compose = true
     }
@@ -28,7 +28,7 @@ fun CommonExtension<*, *, *, *>.addComposeConfig() {
 /**
  * Adds the base default app configurations on Gradle.
  */
-fun CommonExtension<*, *, *, *>.addDefaultConfig() {
+fun CommonExtension<*, *, *, *, *>.addDefaultConfig() {
     defaultConfig {
         compileSdk = Versions.compileSdk
         minSdk = Versions.minSdk

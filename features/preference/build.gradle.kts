@@ -3,6 +3,10 @@ plugins {
     id(GradlePlugin.COMPOSE)
 }
 
+android {
+    namespace = "com.ebdz.preference"
+}
+
 dependencies {
     implementation(projects.libraries.core)
     implementation(projects.libraries.designsystem)

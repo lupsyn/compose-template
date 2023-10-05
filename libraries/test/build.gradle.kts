@@ -3,6 +3,7 @@ plugins {
 }
 
 android {
+    namespace = "com.ebdz.test"
     packagingOptions {
         resources.excludes.apply {
             add("META-INF/AL2.0")
