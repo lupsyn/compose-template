@@ -25,7 +25,7 @@ object Versions {
 
     const val testJunit = "4.13.2"
     const val testRunner = "1.1.1"
-    const val testCore = "1.1.0"
+    const val testCore = "1.5.0"
     const val testMockk = "1.12.1"
     const val testMockito = "3.9.0"
     const val testUiAutomator = "2.2.0"
