@@ -34,7 +34,7 @@ object Versions {
     const val barista = "4.0.0"
 
     const val compose = "1.5.3"
-    const val composeNav = "2.7.3"
+    const val composeNav = "2.7.7"
     const val composeVm = "2.6.2"
     const val composeActivity = "1.7.2"
 
