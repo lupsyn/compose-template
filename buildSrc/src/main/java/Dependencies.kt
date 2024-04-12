@@ -21,7 +21,7 @@ object Versions {
 
     const val logging = "2.0.6"
 
-    const val koin = "3.1.4"
+    const val koin = "3.5.6"
 
     const val testJunit = "4.13.2"
     const val testRunner = "1.1.1"
