@@ -36,7 +36,7 @@ object Versions {
     const val compose = "1.5.3"
     const val composeNav = "2.7.3"
     const val composeVm = "2.6.2"
-    const val composeActivity = "1.7.2"
+    const val composeActivity = "1.9.0"
 
     const val ktlint = "0.42.1"
     const val detekt = "1.17.1"
