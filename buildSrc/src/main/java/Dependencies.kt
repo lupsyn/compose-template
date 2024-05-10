@@ -17,7 +17,7 @@ object Versions {
     const val playCore = "1.10.0"
     const val splashScreen = "1.0.1"
 
-    const val coroutines = "1.6.4"
+    const val coroutines = "1.8.1"
 
     const val logging = "2.0.6"
 
