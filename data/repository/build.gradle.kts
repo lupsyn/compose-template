@@ -1,10 +1,14 @@
 plugins {
-    id(GradlePlugin.KOTLIN_LIBRARY)
+    id("com.ebdz.compose.gradleplugin.androidlibrary")
+    id("com.ebdz.compose.gradleplugin.androidkotlin")
+    id("com.ebdz.compose.gradleplugin.di")
 }
 
+android {
+    namespace = "com.ebdz.data.repository"
+}
 
 dependencies {
-    implementation(projects.domain)
-    implementation(Deps.koin.core)
-    implementation(Deps.coroutines.core)
+    testImplementation(project(":libraries:test"))
 }
+

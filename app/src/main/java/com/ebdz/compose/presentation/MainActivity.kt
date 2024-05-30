@@ -5,7 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.ebdz.compose.navigation.NavGraph
-import com.ebdz.designsystem.Theme
+import com.ebdz.libraries.designsystem.Theme
 
 /**
  * Main Activity.

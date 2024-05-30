@@ -1,10 +1,12 @@
 plugins {
-    id(GradlePlugin.ANDROID_LIBRARY)
-    id(GradlePlugin.KAPT)
+    id("com.ebdz.compose.gradleplugin.androidlibrary")
+    id("com.ebdz.compose.gradleplugin.androidkotlin")
+    id("com.ebdz.compose.gradleplugin.di")
 }
 
 android {
-    namespace = "com.ebdz.local"
+    namespace = "com.ebdz.data.local"
+
     defaultConfig {
         javaCompileOptions {
             annotationProcessorOptions {
@@ -19,18 +21,13 @@ android {
 }
 
 dependencies {
+    kapt(libs.roomCompiler)
+
+    implementation(libs.room)
+    implementation(libs.roomKtx)
+
     implementation(projects.libraries.core)
     implementation(projects.data.repository)
 
-    implementation(Deps.koin.android)
-    implementation(Deps.android.room.runtime)
-    implementation(Deps.android.room.ktx)
-    kapt(Deps.android.room.compiler)
-
-    androidTestImplementation(Deps.test.runner)
-    androidTestImplementation(Deps.test.room)
-
-    testImplementation(Deps.test.junit)
-    testImplementation(Deps.test.mockk)
-    testImplementation(Deps.coroutines.test)
+    testImplementation(project(":libraries:test"))
 }

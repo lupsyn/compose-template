@@ -1,10 +1,13 @@
 plugins {
-    id(GradlePlugin.ANDROID_LIBRARY)
+    id("com.ebdz.compose.gradleplugin.androidlibrary")
+    id("com.ebdz.compose.gradleplugin.androidkotlin")
+    id("com.ebdz.compose.gradleplugin.di")
 }
 
 android {
-    namespace = "com.ebdz.test"
-    packagingOptions {
+    namespace = "com.ebdz.libraries.test"
+
+    packaging {
         resources.excludes.apply {
             add("META-INF/AL2.0")
             add("META-INF/LGPL2.1")
@@ -23,22 +26,5 @@ android {
 dependencies {
     implementation(projects.libraries.core)
 
-    api(Deps.test.junit)
-
-    api(Deps.coroutines.test)
-    api(Deps.coroutines.testDebug)
-
-    api(Deps.test.mockito)
-    api(Deps.test.mockitoInline)
-
-    implementation(Deps.compose.uiTest) {
-        exclude(group = "androidx.core", module = "core-ktx")
-        exclude(group = "androidx.fragment", module = "fragment")
-        exclude(group = "androidx.customview", module = "customview")
-        exclude(group = "androidx.activity", module = "activity")
-        exclude(group = "androidx.lifecycle", module = "lifecycle-runtime")
-    }
-
-    implementation(Deps.test.core)
-    implementation(Deps.test.uiAutomator)
+    api(libs.bundles.test)
 }

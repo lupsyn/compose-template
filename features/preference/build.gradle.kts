@@ -1,6 +1,10 @@
 plugins {
-    id(GradlePlugin.ANDROID_LIBRARY)
-    id(GradlePlugin.COMPOSE)
+    id("com.ebdz.compose.gradleplugin.androidlibrary")
+    id("com.ebdz.compose.gradleplugin.librarycompose")
+}
+
+android {
+    namespace = "com.ebdz.features.preference"
 }
 
 android {
@@ -8,10 +12,9 @@ android {
 }
 
 dependencies {
-    implementation(projects.libraries.core)
-    implementation(projects.libraries.designsystem)
+    implementation(project(":libraries:core"))
+    implementation(project(":libraries:designsystem"))
+    implementation(project(":libraries:extensions"))
 
-    testImplementation(projects.libraries.test)
-
-    androidTestImplementation(projects.libraries.test)
+    testImplementation(project(":libraries:test"))
 }

@@ -8,7 +8,7 @@ allprojects {
 }
 
 tasks.register("clean") {
-    delete(rootProject.buildDir)
+    delete(rootProject.layout.buildDirectory)
 }
 
 tasks.withType(KotlinCompile::class.java).configureEach {

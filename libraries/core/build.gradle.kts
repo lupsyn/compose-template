@@ -1,5 +1,10 @@
 plugins {
-    id(GradlePlugin.ANDROID_LIBRARY)
+    id("com.ebdz.compose.gradleplugin.androidlibrary")
+    id("com.ebdz.compose.gradleplugin.di")
+}
+
+android {
+    namespace = "com.ebdz.libraries.core"
 }
 
 android {
@@ -7,9 +12,7 @@ android {
 }
 
 dependencies {
-    implementation(Deps.android.ktx)
-    implementation(Deps.android.material)
-    implementation(Deps.android.splashScreen)
-    implementation(Deps.coroutines.core)
-    implementation(Deps.koin.android)
+    implementation(libs.lifecycleViewmodel)
+
+    testImplementation(project(":libraries:test"))
 }

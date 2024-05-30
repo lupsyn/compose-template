@@ -7,8 +7,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.ebdz.compose.presentation.home.HomeScreen
-import com.ebdz.navigation.Destinations
-import com.ebdz.preference.presentation.About
+import com.ebdz.libraries.navigation.Destinations
 
 /**
  * Navigation Graph to control the app navigation.
@@ -28,7 +27,7 @@ fun NavGraph(startDestination: String = Destinations.Home) {
             HomeScreen(onAboutClick = actions.openAbout)
         }
         composable(Destinations.About) {
-            About(onUpPress = actions.onUpPress)
+//            About(onUpPress = actions.onUpPress)
         }
     }
 }
