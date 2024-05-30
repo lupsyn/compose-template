@@ -23,5 +23,5 @@ dependencies {
     testImplementation(project(":libraries:test"))
 
 
-    implementation("io.insert-koin:koin-android:3.5.3")
+    implementation("io.insert-koin:koin-android:3.5.6")
 }
