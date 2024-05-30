@@ -37,7 +37,7 @@ detekt = "1.23.5"
 koin = "3.5.3"
 
 # Library
-javaxAnnotation = "1.0"
+javaxAnnotation = "1.0-20050927.133100"
 
 # Gson
 gson = "2.10.1"
