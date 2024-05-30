@@ -1,4 +1,4 @@
-package com.ebdz.features.presentation
+package com.ebdz.features.preference
 
 import androidx.compose.animation.animateColor
 import androidx.compose.animation.core.LinearEasing
@@ -32,7 +32,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.ebdz.features.preference.R
 import com.ebdz.libraries.designsystem.Theme
 import com.ebdz.libraries.designsystem.blue700
 import com.ebdz.libraries.designsystem.components.Toolbar

@@ -5,6 +5,7 @@ plugins {
 }
 
 dependencies {
+    implementation(project(":features:preference"))
     debugImplementation(libs.leakCanary)
 
     implementation(libs.bundles.androidFramework)
@@ -18,8 +19,6 @@ dependencies {
     implementation(project(":libraries:navigation"))
     implementation(project(":libraries:designsystem"))
     implementation(project(":libraries:extensions"))
-
-    implementation(project(":features:preference"))
 
     testImplementation(project(":libraries:test"))
 

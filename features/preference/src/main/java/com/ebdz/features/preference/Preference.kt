@@ -1,4 +1,4 @@
-package com.ebdz.features.presentation
+package com.ebdz.features.preference
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -20,7 +20,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.ebdz.features.preference.R
 import com.ebdz.libraries.designsystem.Theme
 import com.ebdz.libraries.extensions.getVersionName
 import java.util.Locale

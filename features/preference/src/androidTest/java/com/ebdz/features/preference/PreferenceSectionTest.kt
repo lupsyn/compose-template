@@ -4,7 +4,6 @@ import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithText
 import androidx.test.platform.app.InstrumentationRegistry
 import com.ebdz.designsystem.Theme
-import com.ebdz.features.presentation.PreferenceSection
 import org.junit.Rule
 import org.junit.Test
 

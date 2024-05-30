@@ -31,7 +31,9 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
     ) {
         commonExtension.apply {
             namespace = "com.ebdz.compose"
+
             compileSdk = ConfigData.androidCompileSdkVersion
+
             testBuildType = "debug"
 
             buildFeatures {

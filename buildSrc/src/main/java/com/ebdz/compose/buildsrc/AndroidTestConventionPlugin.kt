@@ -1,8 +1,8 @@
 package com.ebdz.compose.buildsrc
 
-import com.android.build.gradle.TestExtension
+import ConfigData
 import co.vitality.about_you.buildsrc.tools.kotlinOptions
-import com.ebdz.compose.buildsrc.tools.Utils.excludeFromPackagingOptions
+import com.android.build.gradle.TestExtension
 import org.gradle.api.JavaVersion
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -36,14 +36,6 @@ class AndroidTestConventionPlugin : Plugin<Project> {
             sourceCompatibility(JavaVersion.VERSION_17)
             targetCompatibility(JavaVersion.VERSION_17)
         }
-
-        excludeFromPackagingOptions(
-            "LICENSE.txt",
-            "META-INF/DEPENDENCIES",
-            "META-INF/ASL2.0",
-            "META-INF/NOTICE",
-            "META-INF/LICENSE"
-        )
 
         kotlinOptions {
             jvmTarget = JavaVersion.VERSION_17.toString()

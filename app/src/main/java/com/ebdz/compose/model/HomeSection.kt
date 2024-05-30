@@ -18,5 +18,6 @@ enum class HomeSection(
     val icon: ImageVector
 ) {
     Home(R.string.home_title, Icons.Outlined.Home),
+
     Settings(R.string.home_title_settings, Icons.Outlined.Settings)
 }
