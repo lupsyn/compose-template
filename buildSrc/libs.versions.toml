@@ -40,7 +40,7 @@ koin = "3.5.3"
 javaxAnnotation = "1.0"
 
 # Gson
-gson = "2.10.1"
+gson = "2.11.0"
 
 # Image utils
 glide = "4.16.0"
