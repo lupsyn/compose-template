@@ -1,17 +1,17 @@
 plugins {
-    id("com.ebdz.compose.gradleplugin.androidapplication")
-    id("com.ebdz.compose.gradleplugin.applicationcompose")
+    id("com.ebdz.compose.gradleplugin.android.application")
+    id("com.ebdz.compose.gradleplugin.application.compose")
     id("com.ebdz.compose.gradleplugin.di")
+    id("com.ebdz.compose.gradleplugin.android.di")
 }
 
 dependencies {
-    implementation(project(":features:preference"))
     debugImplementation(libs.leakCanary)
 
     implementation(libs.bundles.androidFramework)
 
     implementation(project(":domain"))
-    implementation(project(":data:local"))
+
     implementation(project(":data:repository"))
 
     implementation(project(":libraries:core"))
@@ -21,7 +21,4 @@ dependencies {
     implementation(project(":libraries:extensions"))
 
     testImplementation(project(":libraries:test"))
-
-
-    implementation("io.insert-koin:koin-android:3.5.3")
 }

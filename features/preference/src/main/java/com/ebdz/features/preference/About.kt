@@ -36,6 +36,7 @@ import com.ebdz.libraries.designsystem.Theme
 import com.ebdz.libraries.designsystem.blue700
 import com.ebdz.libraries.designsystem.components.Toolbar
 import com.ebdz.libraries.designsystem.lightGreen700
+import com.ebdz.preference.R
 import java.util.Locale
 
 /**

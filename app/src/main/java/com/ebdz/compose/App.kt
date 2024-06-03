@@ -2,7 +2,7 @@ package com.ebdz.compose
 
 import android.app.Application
 import com.ebdz.compose.di.appModule
-import com.ebdz.data.local.di.localModule
+//import com.ebdz.data.local.di.localModule
 import com.ebdz.data.local.di.repositoryModule
 import com.ebdz.domain.di.domainModule
 import org.koin.android.ext.koin.androidContext
@@ -26,8 +26,8 @@ class App : Application() {
                 appModule +
 //                        coreModule +
                         domainModule +
-                        repositoryModule +
-                        localModule
+                        repositoryModule
+//                        localModule
             )
         }
     }

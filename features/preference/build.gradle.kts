@@ -1,14 +1,10 @@
 plugins {
-    id("com.ebdz.compose.gradleplugin.androidlibrary")
-    id("com.ebdz.compose.gradleplugin.librarycompose")
+    id("com.ebdz.compose.gradleplugin.android.library")
+    id("com.ebdz.compose.gradleplugin.library.compose")
 }
 
 android {
     namespace = "com.ebdz.features.preference"
-}
-
-android {
-    namespace = "com.ebdz.preference"
 }
 
 dependencies {
