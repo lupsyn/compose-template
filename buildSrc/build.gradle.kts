@@ -13,49 +13,55 @@ repositories {
 gradlePlugin {
     plugins {
         register("androidApplication") {
-            id = "com.ebdz.compose.gradleplugin.androidapplication"
+            id = "com.ebdz.compose.gradleplugin.android.application"
             
             implementationClass =
                 "com.ebdz.compose.buildsrc.AndroidApplicationConventionPlugin"
         }
         register("androidApplicationCompose") {
-            id = "com.ebdz.compose.gradleplugin.applicationcompose"
+            id = "com.ebdz.compose.gradleplugin.application.compose"
 
             implementationClass =
                 "com.ebdz.compose.buildsrc.AndroidApplicationComposeConventionPlugin"
         }
         register("androidLibraryCompose") {
-            id = "com.ebdz.compose.gradleplugin.librarycompose"
+            id = "com.ebdz.compose.gradleplugin.library.compose"
 
             implementationClass =
                 "com.ebdz.compose.buildsrc.AndroidLibraryComposeConventionPlugin"
         }
         register("androidFrameworkLibraries") {
-            id = "com.ebdz.compose.gradleplugin.androidframework"
+            id = "com.ebdz.compose.gradleplugin.android.framework"
 
             implementationClass =
                 "com.ebdz.compose.buildsrc.AndroidFrameworkLibrariesConventionPlugin"
         }
-        register("androidLibraryDI") {
+        register("androidAppDi") {
+            id = "com.ebdz.compose.gradleplugin.android.di"
+
+            implementationClass =
+                "com.ebdz.compose.buildsrc.AndroidAppDiConventionPlugin"
+        }
+        register("androidLibraryDi") {
             id = "com.ebdz.compose.gradleplugin.di"
 
             implementationClass =
-                "com.ebdz.compose.buildsrc.AndroidDIConventionPlugin"
+                "com.ebdz.compose.buildsrc.AndroidDiConventionPlugin"
         }
         register("androidKotlin") {
-            id = "com.ebdz.compose.gradleplugin.androidkotlin"
+            id = "com.ebdz.compose.gradleplugin.android.kotlin"
 
             implementationClass =
                 "com.ebdz.compose.buildsrc.AndroidLibraryKotlinConventionPlugin"
         }
         register("androidLibrary") {
-            id = "com.ebdz.compose.gradleplugin.androidlibrary"
+            id = "com.ebdz.compose.gradleplugin.android.library"
 
             implementationClass =
                 "com.ebdz.compose.buildsrc.AndroidLibraryConventionPlugin"
         }
         register("androidTest") {
-            id = "com.ebdz.compose.gradleplugin.androidtest"
+            id = "com.ebdz.compose.gradleplugin.android.test"
 
             implementationClass =
                 "com.ebdz.compose.buildsrc.AndroidTestConventionPlugin"

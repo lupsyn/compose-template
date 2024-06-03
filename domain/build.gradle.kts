@@ -1,6 +1,6 @@
 plugins {
-    id("com.ebdz.compose.gradleplugin.androidlibrary")
-    id("com.ebdz.compose.gradleplugin.androidkotlin")
+    id("com.ebdz.compose.gradleplugin.android.library")
+    id("com.ebdz.compose.gradleplugin.android.kotlin")
     id("com.ebdz.compose.gradleplugin.di")
 }
 

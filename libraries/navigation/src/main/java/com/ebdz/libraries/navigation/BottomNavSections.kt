@@ -1,11 +1,10 @@
-package com.ebdz.compose.model
+package com.ebdz.libraries.navigation
 
 import androidx.annotation.StringRes
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Home
 import androidx.compose.material.icons.outlined.Settings
 import androidx.compose.ui.graphics.vector.ImageVector
-import com.ebdz.compose.R
 
 /**
  * Enum to represent the sections available in the bottom app bar.
@@ -13,11 +12,20 @@ import com.ebdz.compose.R
  * @param title title to be shown in top app bar.
  * @param icon icon to be shown in the bottom app bar
  */
-enum class HomeSection(
+enum class BottomNavSections(
+    val route: String,
     @StringRes val title: Int,
-    val icon: ImageVector
+    val icon: ImageVector,
 ) {
-    Home(R.string.home_title, Icons.Outlined.Home),
+    Home(
+        route = Destinations.Home,
+        title = R.string.home_title,
+        icon = Icons.Outlined.Home
+    ),
 
-    Settings(R.string.home_title_settings, Icons.Outlined.Settings)
+    Settings(
+        route = Destinations.Settings,
+        title = R.string.home_title_settings,
+        icon = Icons.Outlined.Settings
+    )
 }

@@ -12,7 +12,9 @@ include(":domain")
 include(":data:repository")
 include(":data:local")
 
+include(":features:home")
 include(":features:preference")
+
 
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
