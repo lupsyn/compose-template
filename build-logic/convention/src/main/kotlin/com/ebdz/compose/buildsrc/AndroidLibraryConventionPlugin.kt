@@ -1,34 +1,29 @@
 package com.ebdz.compose.buildsrc
 
 import ConfigData
-import co.vitality.about_you.buildsrc.tools.kotlinOptions
-import com.android.build.gradle.TestExtension
+import com.android.build.gradle.LibraryExtension
 import org.gradle.api.JavaVersion
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.getByType
 
-class AndroidTestConventionPlugin : Plugin<Project> {
+class AndroidLibraryConventionPlugin : Plugin<Project> {
 
     override fun apply(target: Project) {
         with(target) {
-            pluginManager.apply("com.android.test")
-            pluginManager.apply("kotlin-android")
-            pluginManager.apply("kotlin-kapt")
-            extensions.getByType<TestExtension>().configure()
+            pluginManager.apply("com.android.library")
+            pluginManager.apply("org.jetbrains.kotlin.android")
+
+            extensions.getByType<LibraryExtension>().configure()
         }
     }
 
-    private fun TestExtension.configure() {
+    private fun LibraryExtension.configure() {
         setCompileSdkVersion(ConfigData.androidCompileSdkVersion)
-
-        experimentalProperties["android.experimental.self-instrumenting"] = true
-        targetProjectPath = ":app"
 
         defaultConfig {
             multiDexEnabled = true
             minSdk = ConfigData.androidMinSdkVersion
-            targetSdk = ConfigData.androidTargetSdkVersion
             testInstrumentationRunner = ConfigData.testInstrumentationRunner
         }
 
@@ -37,9 +32,8 @@ class AndroidTestConventionPlugin : Plugin<Project> {
             targetCompatibility(JavaVersion.VERSION_17)
         }
 
-        kotlinOptions {
-            jvmTarget = JavaVersion.VERSION_17.toString()
+        testOptions {
+            unitTests.isReturnDefaultValues = true
         }
     }
-
 }

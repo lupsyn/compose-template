@@ -7,17 +7,6 @@ plugins {
 android {
     namespace = "com.ebdz.libraries.test"
 
-    packaging {
-        resources.excludes.apply {
-            add("META-INF/AL2.0")
-            add("META-INF/LGPL2.1")
-            add("**/attach_hotspot_windows.dll")
-            add("META-INF/licenses/**")
-            add("META-INF/AL2.0")
-            add("META-INF/LGPL2.1")
-        }
-    }
-
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_17.toString()
     }

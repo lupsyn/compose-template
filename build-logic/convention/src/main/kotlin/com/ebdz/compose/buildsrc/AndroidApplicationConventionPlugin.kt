@@ -1,29 +1,24 @@
 package com.ebdz.compose.buildsrc
 
-import com.android.build.api.dsl.ApplicationExtension
+import ConfigData
 import co.vitality.about_you.buildsrc.tools.kotlinOptions
+import com.android.build.api.dsl.ApplicationExtension
 import org.gradle.api.JavaVersion
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.getByType
-import org.jetbrains.kotlin.gradle.plugin.KaptExtension
 
 class AndroidApplicationConventionPlugin : Plugin<Project> {
 
     override fun apply(target: Project) {
         with(target) {
-            pluginManager.apply("com.android.application")
-            pluginManager.apply("kotlin-android")
-            pluginManager.apply("kotlin-kapt")
-            pluginManager.apply("kotlin-parcelize")
+            with(pluginManager) {
+                apply("com.android.application")
+                apply("org.jetbrains.kotlin.android")
+            }
 
             configureApplication(extensions.getByType())
-            extensions.getByType<KaptExtension>().configure()
         }
-    }
-
-    private fun KaptExtension.configure() {
-        correctErrorTypes = true
     }
 
     private fun configureApplication(
@@ -61,11 +56,13 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
             compileOptions {
                 sourceCompatibility(JavaVersion.VERSION_17)
                 targetCompatibility(JavaVersion.VERSION_17)
+//                isCoreLibraryDesugaringEnabled = true
             }
 
             kotlinOptions {
                 jvmTarget = JavaVersion.VERSION_17.toString()
             }
+
         }
     }
 }

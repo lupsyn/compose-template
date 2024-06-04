@@ -2,6 +2,7 @@ plugins {
     id("com.ebdz.compose.gradleplugin.android.library")
     id("com.ebdz.compose.gradleplugin.android.kotlin")
     id("com.ebdz.compose.gradleplugin.di")
+    id("com.ebdz.compose.gradleplugin.android.room")
 }
 
 android {
@@ -21,11 +22,6 @@ android {
 }
 
 dependencies {
-    kapt(libs.roomCompiler)
-
-    implementation(libs.room)
-    implementation(libs.roomKtx)
-
     implementation(projects.libraries.core)
     implementation(projects.data.repository)
 

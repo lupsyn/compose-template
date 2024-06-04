@@ -22,7 +22,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.ebdz.libraries.designsystem.Theme
 import com.ebdz.libraries.extensions.getVersionName
-import com.ebdz.preference.R
 import java.util.Locale
 
 /**
