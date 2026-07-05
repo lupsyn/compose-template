@@ -3,7 +3,7 @@ name: Pre Merge Checks
 on:
   push:
     branches:
-      - master
+      - main
   pull_request:
     branches:
       - '*'
@@ -30,7 +30,7 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: 'adopt'
-          java-version: '17'
+          java-version: '21'
       - name: Run Gradle
         run: ./gradlew build check --continue
       - name: Stop Gradle

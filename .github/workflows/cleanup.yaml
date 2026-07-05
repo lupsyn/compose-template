@@ -6,36 +6,35 @@ name: Template Cleanup
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   template-cleanup:
     name: Template Cleanup
     runs-on: ubuntu-latest
-    if: github.event.repository.name != 'compose-android-template'
+    if: github.event.repository.name != 'compose-template'
     steps:
 
       # Check out current repository
       - name: Fetch Sources
         uses: actions/checkout@v4
-      # Setup Java
-      - uses: actions/setup-java@v4
-        with:
-          distribution: 'adopt'
-          java-version: '17'
-      # Cleanup project
+      # Replace the template README with the generated-repo one and drop template-only files
       - name: Cleanup
-        run: ./gradlew templateCleanup
+        run: |
+          sed -e "s/%NAME%/${{ github.event.repository.name }}/g" \
+              -e "s#%REPOSITORY%#${{ github.repository }}#g" \
+              .github/template-cleanup/README.md > README.md
+          rm -rf .github/template-cleanup
       # Commit modified files
       - name: Commit files
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add .
+          git add -A
           git commit -m "Template cleanup"
       # Push changes
       - name: Push changes
         uses: ad-m/github-push-action@v0.8.0
         with:
-          branch: master
+          branch: main
           github_token: ${{ secrets.GITHUB_TOKEN }}
