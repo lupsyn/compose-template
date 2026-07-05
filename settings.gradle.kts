@@ -1,5 +1,4 @@
 pluginManagement {
-    includeBuild("build-logic")
     repositories {
         google()
         mavenCentral()
@@ -25,10 +24,11 @@ include(":libraries:test")
 include(":libraries:designsystem")
 include(":libraries:navigation")
 include(":libraries:extensions")
+include(":libraries:iosBridge")
 
 include(":domain")
 include(":data:repository")
 include(":data:local")
+include(":data:remote")
 
-include(":features:home")
-include(":features:preference")
+include(":features:template")

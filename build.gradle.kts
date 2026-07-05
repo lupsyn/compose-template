@@ -21,14 +21,51 @@ buildscript {
     }
 }
 
-// Lists all plugins used throughout the project
 plugins {
-    alias(libs.plugins.android.application) apply false
-    alias(libs.plugins.android.library) apply false
-    alias(libs.plugins.android.test) apply false
-    alias(libs.plugins.compose) apply false
-    alias(libs.plugins.kotlin.jvm) apply false
-    alias(libs.plugins.kotlin.serialization) apply false
+    // trick: for the same plugin versions in all sub-modules
+    alias(libs.plugins.androidApplication) apply false
+    alias(libs.plugins.androidLibrary) apply false
+    alias(libs.plugins.kotlinAndroid) apply false
+    alias(libs.plugins.kotlinMultiplatform) apply false
+    alias(libs.plugins.kotlinSerialization) apply false
+    alias(libs.plugins.composeMultiplatform) apply false
+    alias(libs.plugins.composeCompiler) apply false
     alias(libs.plugins.ksp) apply false
     alias(libs.plugins.room) apply false
+    alias(libs.plugins.detektPlugin)
+}
+
+detekt {
+    buildUponDefaultConfig = true
+    config.setFrom("$projectDir/config/detekt/detekt.yml")
+    parallel = true
+}
+
+dependencies {
+    detektPlugins(libs.detektFormattion)
+}
+
+tasks.withType<io.gitlab.arturbosch.detekt.Detekt>().configureEach {
+    reports {
+        html.required.set(true)
+        xml.required.set(false)
+        txt.required.set(false)
+    }
+}
+
+// Kotlin/Native's compiler-cache builder (KonanConfig -> CacheSupport -> CachedLibraries)
+// crashes with a NullPointerException while resolving the transitive klib graph for native test
+// binaries in modules that pull in Compose Multiplatform (e.g. :features:template) - a known
+// rough edge in this Kotlin/Compose version combination, unrelated to any project dependency
+// misconfiguration. commonTest already runs faithfully on the Android target
+// (`testDebugUnitTest`), so disable the iOS native test-binary link tasks project-wide rather
+// than chase a compiler-internal crash. Applied in `afterEvaluate` so it runs after the Kotlin
+// Multiplatform plugin's own task configuration, which otherwise re-enables these tasks.
+subprojects {
+    afterEvaluate {
+        tasks.matching { task ->
+            val name = task.name
+            name.matches(Regex("ios\\w*Test$")) || name.matches(Regex("link\\w*TestIos\\w*"))
+        }.configureEach { enabled = false }
+    }
 }

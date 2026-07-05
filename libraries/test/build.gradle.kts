@@ -1,19 +1,36 @@
 plugins {
-    id("com.ebdz.compose.gradleplugin.android.library")
-    id("com.ebdz.compose.gradleplugin.android.kotlin")
-    id("com.ebdz.compose.gradleplugin.di")
+    alias(libs.plugins.kotlinMultiplatform)
+    alias(libs.plugins.androidLibrary)
+}
+
+kotlin {
+    androidTarget {
+        compilerOptions {
+            jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_21)
+        }
+    }
+
+    iosX64()
+    iosArm64()
+    iosSimulatorArm64()
+
+    sourceSets {
+        commonMain.dependencies {
+            api(libs.kotlinCoroutinesTest)
+        }
+    }
 }
 
 android {
     namespace = "com.ebdz.libraries.test"
+    compileSdk = 36
 
-    kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_17.toString()
+    defaultConfig {
+        minSdk = 26
     }
-}
 
-dependencies {
-    implementation(projects.libraries.core)
-
-    api(libs.bundles.test)
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
+    }
 }

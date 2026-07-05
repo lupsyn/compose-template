@@ -1,17 +1,45 @@
 plugins {
-    id("com.ebdz.compose.gradleplugin.android.library")
-    id("com.ebdz.compose.gradleplugin.android.kotlin")
-    id("com.ebdz.compose.gradleplugin.di")
-    // For icons in this case but not needed redundant here.
-    id("com.ebdz.compose.gradleplugin.library.compose")
+    alias(libs.plugins.kotlinMultiplatform)
+    alias(libs.plugins.androidLibrary)
+    alias(libs.plugins.composeMultiplatform)
+    alias(libs.plugins.composeCompiler)
+}
+
+kotlin {
+    androidTarget {
+        compilerOptions {
+            jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_21)
+        }
+    }
+
+    iosX64()
+    iosArm64()
+    iosSimulatorArm64()
+
+    sourceSets {
+        commonMain.dependencies {
+            api(libs.navigationComposeKmp)
+
+            implementation(compose.ui)
+            implementation(compose.materialIconsExtended)
+        }
+    }
 }
 
 android {
     namespace = "com.ebdz.libraries.navigation"
-}
+    compileSdk = 36
 
-dependencies {
-    api(libs.bundles.composeNavigationBundle)
+    defaultConfig {
+        minSdk = 26
+    }
 
-    implementation(libs.ktxCore)
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
+    }
+
+    buildFeatures {
+        compose = true
+    }
 }

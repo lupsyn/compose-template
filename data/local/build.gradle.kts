@@ -1,29 +1,63 @@
 plugins {
-    id("com.ebdz.compose.gradleplugin.android.library")
-    id("com.ebdz.compose.gradleplugin.android.kotlin")
-    id("com.ebdz.compose.gradleplugin.di")
-    id("com.ebdz.compose.gradleplugin.android.room")
+    alias(libs.plugins.kotlinMultiplatform)
+    alias(libs.plugins.androidLibrary)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.room)
+}
+
+kotlin {
+    androidTarget {
+        compilerOptions {
+            jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_21)
+        }
+    }
+
+    iosX64()
+    iosArm64()
+    iosSimulatorArm64()
+
+    sourceSets {
+        commonMain.dependencies {
+            implementation(libs.room.runtime)
+            implementation(libs.koin.core)
+        }
+
+        androidMain.dependencies {
+            implementation(libs.room.ktx)
+        }
+
+        iosMain.dependencies {
+            implementation(libs.sqlite.bundled)
+        }
+
+        commonTest.dependencies {
+            implementation(kotlin("test"))
+            implementation(libs.kotlinCoroutinesTest)
+        }
+    }
 }
 
 android {
     namespace = "com.ebdz.data.local"
+    compileSdk = 36
 
     defaultConfig {
-        javaCompileOptions {
-            annotationProcessorOptions {
-                arguments["room.schemaLocation"] = "$projectDir/schemas"
-                arguments["room.incremental"] = "true"
-            }
-        }
+        minSdk = 26
     }
-    sourceSets {
-        getByName("androidTest").assets.srcDirs("$projectDir/schemas")
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
     }
 }
 
 dependencies {
-    implementation(projects.libraries.core)
-    implementation(projects.data.repository)
+    add("kspAndroid", libs.room.compiler)
+    add("kspIosX64", libs.room.compiler)
+    add("kspIosArm64", libs.room.compiler)
+    add("kspIosSimulatorArm64", libs.room.compiler)
+}
 
-    testImplementation(project(":libraries:test"))
+room {
+    schemaDirectory("$projectDir/schemas")
 }

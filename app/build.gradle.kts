@@ -1,8 +1,31 @@
 plugins {
-    id("com.ebdz.compose.gradleplugin.android.application")
-    id("com.ebdz.compose.gradleplugin.application.compose")
-    id("com.ebdz.compose.gradleplugin.di")
-    id("com.ebdz.compose.gradleplugin.android.di")
+    alias(libs.plugins.androidApplication)
+    alias(libs.plugins.kotlinAndroid)
+    alias(libs.plugins.composeMultiplatform)
+    alias(libs.plugins.composeCompiler)
+}
+
+android {
+    namespace = "com.ebdz.compose"
+    compileSdk = 36
+
+    defaultConfig {
+        applicationId = "com.ebdz.compose"
+        minSdk = 26
+        targetSdk = 36
+        versionCode = 1
+        versionName = "1.0"
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
+    }
+
+    buildFeatures {
+        compose = true
+        buildConfig = true
+    }
 }
 
 dependencies {
@@ -10,15 +33,24 @@ dependencies {
 
     implementation(libs.bundles.androidFramework)
 
-    implementation(project(":domain"))
+    implementation(projects.domain)
+    implementation(projects.data.repository)
+    implementation(projects.data.local)
+    implementation(projects.data.remote)
 
-    implementation(project(":data:repository"))
+    implementation(projects.libraries.core)
+    implementation(projects.libraries.designsystem)
+    implementation(projects.libraries.navigation)
+    implementation(projects.libraries.extensions)
+    implementation(projects.features.template)
 
-    implementation(project(":libraries:core"))
-    implementation(project(":libraries:navigation"))
-    implementation(project(":libraries:navigation"))
-    implementation(project(":libraries:designsystem"))
-    implementation(project(":libraries:extensions"))
+    implementation(compose.runtime)
+    implementation(compose.material3)
+    debugImplementation(compose.uiTooling)
 
-    testImplementation(project(":libraries:test"))
+    implementation(libs.composeActivity)
+    implementation(libs.koin.android)
+    implementation(libs.koin.androidxCompose)
+
+    testImplementation(projects.libraries.test)
 }
