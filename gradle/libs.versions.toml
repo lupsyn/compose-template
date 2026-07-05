@@ -1,5 +1,5 @@
 [versions]
-activityKtx = "1.9.0"
+activityKtx = "1.13.0"
 androidCoreTest = "2.2.0"
 androidGradlePlugin = "8.9.1"
 androidTools = "31.9.1"
